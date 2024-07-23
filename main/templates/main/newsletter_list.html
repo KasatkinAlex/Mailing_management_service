@@ -1,0 +1,29 @@
+{% extends 'main/index.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h2 class="display-4">Созданные рассылки</h2>
+</div>
+<div class="container">
+    <div class="row text-center">
+        {% for object in object_list %}
+        <div class="col-3">
+            <div class="card mb-4 box-shadow">
+                <div class="card-header">
+                    <h4 class="my-0 font-weight-normal">{{ object.period }}</h4>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title pricing-card-title">Дата создания {{ object.created_at }}</h4>
+<!--                    <img src="{{ prod.image_product | media_filter}}" class="img-thumbnail">-->
+                    <ul class="list-unstyled mt-3 mb-4 text-start m-3">
+                        <li>Статус {{ object.status }}</li>
+                        <li>Дата отправки {{ object.date_time_go }}</li>
+                    </ul>
+                    <a class="btn btn-primary" href="{% url 'main:newsletter_detail' object.pk %}"
+                       role="button">Подробно</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'main/index.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Сервис Рассылки</h1>
+
+</div>
+
+<div class="coll-12">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <p>Хотите удалить Рассылку {{ newsletter.pk }}</p>
+                        <button type="submit" class="btn btn-danger">Удалить</button>
+                        <a class="btn btn-primary" href="{% url 'main:client_list' %}" role="button">Отмена</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
