@@ -4,8 +4,8 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 from pytils.templatetags.pytils_translit import slugify
 
-from main.forms import ClientForm, MessageForm, NewsletterForm
-from main.models import Client, Message, Newsletter
+from main1.forms import ClientForm, MessageForm, NewsletterForm
+from main1.models import Client, Message, Newsletter
 
 
 class ClientListView(ListView):
@@ -28,13 +28,13 @@ class ClientUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('main:client_detail', args=[self.kwargs.get('pk')])
+        return reverse('main1:client_detail', args=[self.kwargs.get('pk')])
 
 
 class ClientCreateView(LoginRequiredMixin, CreateView):
     model = Client
     form_class = ClientForm
-    success_url = reverse_lazy('main:client_list')
+    success_url = reverse_lazy('main1:client_list')
 
     def form_valid(self, form):
         client = form.save()
@@ -50,7 +50,7 @@ class ClientCreateView(LoginRequiredMixin, CreateView):
 
 class ClientDeleteView(LoginRequiredMixin, DeleteView):
     model = Client
-    success_url = reverse_lazy('main:client_list')
+    success_url = reverse_lazy('main1:client_list')
 
 # РАБОТА С СООБЩЕНИЯМИ __________________________________________________________________________
 
@@ -75,13 +75,13 @@ class MessageUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('main:message_detail', args=[self.kwargs.get('pk')])
+        return reverse('main1:message_detail', args=[self.kwargs.get('pk')])
 
 
 class MessageCreateView(LoginRequiredMixin, CreateView):
     model = Message
     form_class = MessageForm
-    success_url = reverse_lazy('main:client_list')
+    success_url = reverse_lazy('main1:client_list')
 
     def form_valid(self, form):
         client = form.save()
@@ -97,7 +97,7 @@ class MessageCreateView(LoginRequiredMixin, CreateView):
 
 class MessageDeleteView(LoginRequiredMixin, DeleteView):
     model = Message
-    success_url = reverse_lazy('main:client_list')
+    success_url = reverse_lazy('main1:client_list')
 
 
 # РАБОТА С РАССЫЛКАМИ___________________________________
@@ -123,13 +123,13 @@ class NewsletterUpdateView(LoginRequiredMixin, UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('main:message_detail', args=[self.kwargs.get('pk')])
+        return reverse('main1:message_detail', args=[self.kwargs.get('pk')])
 
 
 class NewsletterCreateView(LoginRequiredMixin, CreateView):
     model = Newsletter
     form_class = NewsletterForm
-    success_url = reverse_lazy('main:client_list')
+    success_url = reverse_lazy('main1:client_list')
 
     def form_valid(self, form):
         client = form.save()
@@ -141,4 +141,4 @@ class NewsletterCreateView(LoginRequiredMixin, CreateView):
 
 class NewsletterDeleteView(LoginRequiredMixin, DeleteView):
     model = Newsletter
-    success_url = reverse_lazy('main:client_list')
+    success_url = reverse_lazy('main1:client_list')

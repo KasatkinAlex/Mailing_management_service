@@ -1,9 +1,9 @@
-{% extends 'main/index.html' %}
+{% extends 'main1/index.html' %}
 {% load my_tags %}
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Сервис Рассылки</h1>
-    <h2 class="display-4">Информация о сообщении</h2>
+    <h2 class="display-4">Информация о клиенте</h2>
 </div>
 
 <div class="container">
@@ -15,18 +15,19 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
-                        <li>Текст - {{ object.text }}</li>
-                        <li>Дата создания - {{ object.created_at }}</li>
+                        <li>E-MAIL - {{ object.email }} </li>
+                        <li>ОПИСАНИЕ - {{ object.comment }}</li>
                         <li>Создал - {{ object.user_creator }}</li>
 
                     </ul>
-                    <a class="btn btn-primary" href="{% url 'main:client_list' %}" role="button">Назад</a>
-                    {% if perms.user.is_superuser %}
-                    <a class="btn btn-primary" href="{% url 'main:message_update' message.pk %}" role="button">Редактировать</a>
+                    <a class="btn btn-primary" href="{% url 'main1:client_list' %}" role="button">Назад</a>
+                    {% if user == object.user_creator or perms.user.is_superuser %}
+                    <a class="btn btn-primary" href="{% url 'main1:client_update' client.pk %}" role="button">Редактировать</a>
                     {% endif %}
 
                 </div>
             </div>
         </div>
+
     </div>
     {% endblock %}

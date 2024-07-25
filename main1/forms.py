@@ -1,6 +1,6 @@
 from django.forms import BooleanField, ModelForm
 
-from main.models import Client, Message, Newsletter
+from main1.models import Client, Message, Newsletter
 
 
 class StyleFormMixin:
