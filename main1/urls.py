@@ -3,8 +3,8 @@ from django.conf.urls.static import static
 from django.urls import path
 from django.views.decorators.cache import cache_page
 
-from main.apps import MainConfig
-from main.views import ClientListView, ClientDetailView, ClientCreateView, ClientUpdateView, ClientDeleteView, \
+from main1.apps import MainConfig
+from main1.views import ClientListView, ClientDetailView, ClientCreateView, ClientUpdateView, ClientDeleteView, \
     MessageListView, MessageDeleteView, MessageUpdateView, MessageCreateView, MessageDetailView, NewsletterCreateView, \
     NewsletterListView, NewsletterDetailView, NewsletterUpdateView, NewsletterDeleteView
 

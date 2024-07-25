@@ -50,7 +50,8 @@ class Newsletter(models.Model):
     status_newsletter = (
         ("завершена", "завершена"),
         ("создана", "создана"),
-        ("запущена", "запущена")
+        ("запущена", "запущена"),
+        ("остановленна", "остановленна")
     )
 
     date_time_go = models.DateField(verbose_name="дата и время первой отправки рассылки",
@@ -75,3 +76,5 @@ class Newsletter(models.Model):
         verbose_name = 'Рассылка'
         verbose_name_plural = 'Рассылки'
         ordering = ['created_at']
+
+
