@@ -21,7 +21,7 @@
 
                     </ul>
                     <a class="btn btn-primary" href="{% url 'main1:client_list' %}" role="button">Назад</a>
-                    {% if user == object.user_creator or perms.user.is_superuser %}
+                    {% if user == object.user_creator or perms.user.is_superuser or user.groups == "Менеджер" %}
                     <a class="btn btn-primary" href="{% url 'main1:client_update' client.pk %}" role="button">Редактировать</a>
                     {% endif %}
 

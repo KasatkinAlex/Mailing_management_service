@@ -29,3 +29,9 @@ class NewsletterForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Newsletter
         exclude = ("status", "user_creator", "created_at")
+
+
+class NewsletterManagerForm(StyleFormMixin, ModelForm):
+    class Meta:
+        model = Newsletter
+        fields = ("status",)

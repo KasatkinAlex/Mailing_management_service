@@ -50,8 +50,7 @@ class Newsletter(models.Model):
     status_newsletter = (
         ("завершена", "завершена"),
         ("создана", "создана"),
-        ("запущена", "запущена"),
-        ("остановленна", "остановленна")
+        ("запущена", "запущена")
     )
 
     date_time_go = models.DateField(verbose_name="дата и время первой отправки рассылки",
@@ -68,6 +67,7 @@ class Newsletter(models.Model):
                                      help_text='Укажите пользователя который создал рассылку',
                                      on_delete=models.SET_NULL, null=True)
     created_at = models.DateTimeField(verbose_name='Дата создания', auto_now_add=True, null=True)
+    publication_sign = models.BooleanField(default=True, verbose_name="признак активности рассылки")
 
     def __str__(self):
         return f'Отправленно клиенту {self.client}, статус {self.status}'
@@ -77,4 +77,8 @@ class Newsletter(models.Model):
         verbose_name_plural = 'Рассылки'
         ordering = ['created_at']
 
+        permissions = [
+            ("set_is_activ_user", "Может блокировать пользователей сервиса"),
+            ("set_newsletter_status", "Может отключать рассылки."),
+        ]
 

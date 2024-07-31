@@ -1,10 +1,11 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, UpdateView, DeleteView, CreateView
 from pytils.templatetags.pytils_translit import slugify
 
-from main1.forms import ClientForm, MessageForm, NewsletterForm
+from main1.forms import ClientForm, MessageForm, NewsletterForm, NewsletterManagerForm
 from main1.models import Client, Message, Newsletter
 
 
@@ -12,7 +13,7 @@ class ClientListView(ListView):
     model = Client
 
 
-class ClientDetailView(DetailView):
+class ClientDetailView(LoginRequiredMixin, DetailView):
     model = Client
 
 
@@ -113,7 +114,17 @@ class NewsletterDetailView(DetailView):
 
 class NewsletterUpdateView(LoginRequiredMixin, UpdateView):
     model = Newsletter
-    form_class = NewsletterForm
+    # form_class = NewsletterForm
+
+    def get_form_class(self):
+        user = self.request.user
+        if user.is_superuser or user == self.object.user_creator:
+            print(user.groups)
+            return NewsletterForm
+        elif user.groups.filter(name='Менеджер').exists():
+            print(user.groups.name)
+            return NewsletterManagerForm
+        raise PermissionDenied
 
     def form_valid(self, form):
         if form.is_valid():

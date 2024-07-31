@@ -13,7 +13,7 @@
                     <form method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         {{ form.as_p }}
-                        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                        <button type="submit" class="btn btn-primary">Зарегистрироваться/Сохранить</button>
                         <a class="btn btn-danger" href="{% url 'main1:client_list' %}"
                            role="button">Отмена</a>
                     </form>
