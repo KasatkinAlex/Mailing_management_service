@@ -10,15 +10,13 @@
                     <h4>МЕНЮ</h4>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">Контакты</a></li>
-                        <li><a href="#" class="text-white">Главное меню</a></li>
-                        <li><a href="#" class="text-white">Блог активные</a></li>
-                        <li><a href="#" class="text-white">Добавить блог</a></li>
-                        <li><a href="#" class="text-white">Категории</a></li>
+                        <li><a href="{% url 'main1:client_list'  %}" class="text-white">Cписок клиентов</a></li>
 
                         <li><a href="{% url 'main1:client_create'  %}" class="text-white">Добавить клиента</a></li>
 
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'users:logout' %}" class="text-white">Выход</a></li>
+                        <li><a href="{% url 'main1:log_list' %}" class="text-white">LOG</a></li>
                         {% else %}
                         <li><a href="{% url 'users:login' %}" class="text-white">Вход</a></li>
                         <li><a href="{% url 'users:register' %}" class="text-white">Регистрация</a></li>
@@ -31,7 +29,7 @@
     </div>
     <div class="navbar navbar-dark bg-dark shadow-sm">
         <div class="container">
-            <a href="{% url 'main1:client_list' %}" class="navbar-brand d-flex align-items-center">
+            <a href="{% url 'main1:home' %}" class="navbar-brand d-flex align-items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
                      stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
                      viewBox="0 0 24 24">
