@@ -29,7 +29,7 @@
                           {% endfor %}</li>
 
                     </ul>
-                    <a class="btn btn-primary" href="{% url 'main1:client_list' %}" role="button">Назад</a>
+                    <a class="btn btn-primary" href="{% url 'main1:newsletter_list' %}" role="button">Назад</a>
                     {% if user.is_superuser or perms.main1.set_is_activ_user %}
                     <a class="btn btn-primary" href="{% url 'main1:newsletter_update' newsletter.pk %}" role="button">Редактировать</a>
                     {% endif %}

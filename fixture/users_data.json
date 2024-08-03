@@ -1,0 +1,46 @@
+[
+  {
+    "model": "users.users",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$tx2qEHJ2Q13PdBgVrpkN56$JgWTnYFXpO0nFzK09riMAcKnxI47tMG4dWzq6U3opOI=",
+      "last_login": "2024-08-03T09:36:24.148Z",
+      "is_superuser": true,
+      "first_name": "Admin",
+      "last_name": "Admin",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2024-08-03T07:42:00.475Z",
+      "avatar": "",
+      "phone": null,
+      "country": "",
+      "email": "akasatkin1990@mail.ru",
+      "token": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "users.users",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$2uwDvnOooZ5iAyqV8ZmYQi$u/cyXY+A+51T4JR1HAPjEjwXAFdxtbdB8r6ob0lN5/I=",
+      "last_login": "2024-08-03T09:37:50.682Z",
+      "is_superuser": false,
+      "first_name": "",
+      "last_name": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2024-08-03T09:28:36Z",
+      "avatar": "",
+      "phone": null,
+      "country": "Россия",
+      "email": "al.kasatkin1990@gmail.com",
+      "token": "306dccc7ab6f215cabbe4b7293eb3093",
+      "groups": [
+        1
+      ],
+      "user_permissions": []
+    }
+  }
+]

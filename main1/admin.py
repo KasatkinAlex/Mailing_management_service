@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from main1.models import Client, Message, Newsletter
+from main1.models import Client, Message, Newsletter, MailingAttemptLog
 
 
 @admin.register(Client)
@@ -21,7 +21,8 @@ class NewsletterAdmin(admin.ModelAdmin):
     search_fields = ('status', 'user_creator', 'client')
 
 
-# @admin.register(VersionProduct)
-# class VersionProductAdmin(admin.ModelAdmin):
-#     list_display = ('version_number', 'version_title', 'version_activ')
-#     search_fields = ('version_title', 'version_number', 'version_activ')
+@admin.register(MailingAttemptLog)
+class MailingAttemptLogAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'time', 'status', 'mailing', 'server_response')
+    search_fields = ('status', 'time')
+

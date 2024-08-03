@@ -28,7 +28,7 @@ class MessageForm(StyleFormMixin, ModelForm):
 class NewsletterForm(StyleFormMixin, ModelForm):
     class Meta:
         model = Newsletter
-        exclude = ("status", "user_creator", "created_at")
+        exclude = ("user_creator", "created_at", "status")
 
 
 class NewsletterManagerForm(StyleFormMixin, ModelForm):

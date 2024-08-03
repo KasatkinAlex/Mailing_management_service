@@ -33,6 +33,7 @@
                     <li><a class="text-muted" href="{% url 'main1:newsletter_list' %}">Все созданные рассылки</a></li>
                     {% if user.is_superuser or perms.main1.set_is_activ_user %}
                     <li><a class="text-muted" href="{% url 'users:users_list' %}">Все пользоатели</a></li>
+                    <li><a class="text-muted" href="{% url 'main1:blogpost_create' %}">Добавить пост</a></li>
                     {% endif %}
                 </ul>
             </div>
